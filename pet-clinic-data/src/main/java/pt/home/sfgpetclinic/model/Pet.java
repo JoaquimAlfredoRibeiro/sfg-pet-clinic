@@ -1,6 +1,7 @@
 package pt.home.sfgpetclinic.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "pets")
+@EqualsAndHashCode(exclude = {"visits"})
 public class Pet extends BaseEntity {
 
     @Column(name = "name")
