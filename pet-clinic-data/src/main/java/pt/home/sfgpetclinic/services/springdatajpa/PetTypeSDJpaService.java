@@ -1,4 +1,4 @@
-package pt.home.sfgpetclinic.services.springdatejpa;
+package pt.home.sfgpetclinic.services.springdatajpa;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

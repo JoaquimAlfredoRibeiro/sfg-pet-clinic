@@ -1,17 +1,28 @@
 package pt.home.sfgpetclinic.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "owners")
 @EqualsAndHashCode(exclude = {"pets"})
 public class Owner extends Person {
+
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String adress, String city, String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
+        this.adress = adress;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
 
     @Column(name = "adress")
     private String adress;

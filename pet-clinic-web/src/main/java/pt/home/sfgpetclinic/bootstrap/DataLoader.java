@@ -60,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.setLastName("Sousa");
         owner1.setAdress("Rua da Escola 12");
         owner1.setCity("Porto");
-        owner1.setTelephone("123456789");
+        owner1.setTelephone("123456798");
 
         Pet joaoPet = new Pet();
         joaoPet.setPetType(savedDogPetType);
@@ -93,8 +93,6 @@ public class DataLoader implements CommandLineRunner {
         catVisit.setDescription("Diarreia violenta.");
 
         visitService.save(catVisit);
-
-        System.out.println("Loaded Owners.");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Jose");
