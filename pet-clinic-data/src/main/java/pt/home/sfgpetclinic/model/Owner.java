@@ -18,14 +18,14 @@ public class Owner extends Person {
     @Builder
     public Owner(Long id, String firstName, String lastName, String adress, String city, String telephone, Set<Pet> pets) {
         super(id, firstName, lastName);
-        this.adress = adress;
+        this.address = adress;
         this.city = city;
         this.telephone = telephone;
         this.pets = pets;
     }
 
-    @Column(name = "adress")
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "city")
     private String city;
