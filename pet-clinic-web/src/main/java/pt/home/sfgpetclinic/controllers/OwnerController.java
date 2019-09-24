@@ -63,7 +63,6 @@ public class OwnerController {
 
     @GetMapping("/new")
     public String initCreationForm(Model model) {
-        Owner owner = new Owner();
         model.addAttribute("owner", Owner.builder().build());
         return "owners/createOrUpdateOwnerForm";
     }
@@ -78,4 +77,20 @@ public class OwnerController {
         }
     }
 
+    @GetMapping("/{ownerId}/edit")
+    public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
+        model.addAttribute(ownerService.findById(ownerId));
+        return "owners/createOrUpdateOwnerForm";
+    }
+
+    @PostMapping("/{ownerId}/edit")
+    public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
+        if (result.hasErrors()) {
+            return "owners/createOrUpdateOwnerForm";
+        } else {
+            owner.setId(ownerId);
+            Owner savedOwner = ownerService.save(owner);
+            return "redirect:/owners/" + savedOwner.getId();
+        }
+    }
 }

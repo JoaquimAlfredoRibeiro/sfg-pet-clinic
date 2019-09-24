@@ -100,7 +100,7 @@ class OwnerControllerTest {
 
     @Test
     void initCreationForm() throws Exception {
-        mockMvc.perform(get("/new"))
+        mockMvc.perform(get("/owners/new"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/createOrUpdateOwnerForm"))
                 .andExpect(model().attributeExists("owner"));
@@ -110,7 +110,7 @@ class OwnerControllerTest {
     void processCreationForm() throws Exception {
         when(ownerService.save(ArgumentMatchers.any())).thenReturn(Owner.builder().id(1l).build());
 
-        mockMvc.perform(post("/new"))
+        mockMvc.perform(post("/owners/new"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"))
                 .andExpect(model().attributeExists("owner"));
