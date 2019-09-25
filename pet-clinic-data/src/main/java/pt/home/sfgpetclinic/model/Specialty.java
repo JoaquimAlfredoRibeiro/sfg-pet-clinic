@@ -16,6 +16,6 @@ import javax.persistence.Table;
 public class Specialty extends BaseEntity {
 
     @Column(name = "description")
-    private String descprition;
+    private String description;
 
 }
